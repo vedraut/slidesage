@@ -1,0 +1,22 @@
+{
+  "id": "futuristic-tech",
+  "name": "Futuristic Tech Editorial",
+  "mood": "Sharp, data-driven, confident. Default for product launches, strategy, fintech.",
+  "palette": {
+    "bg": "0B0F14",
+    "bgAlt": "121821",
+    "ink": "F2F6FA",
+    "inkSoft": "9FB0C0",
+    "accent": "2BA39A",
+    "accent2": "5BD1C6",
+    "chart": ["2BA39A", "5BD1C6", "F2A65A", "E2607B", "7C8CF8"]
+  },
+  "type": {
+    "heading": "Arial",
+    "body": "Arial",
+    "mono": "Consolas",
+    "scale": { "kicker": 12, "title": 30, "coverTitle": 48, "body": 16, "caption": 11, "stat": 80 }
+  },
+  "layout": { "marginX": 0.6, "marginY": 0.55, "titleY": 0.55, "bodyGap": 0.32, "bullet": "—", "rule": true },
+  "decor": { "coverShape": "diagonal", "sectionBand": true }
+}

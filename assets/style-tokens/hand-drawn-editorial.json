@@ -1,0 +1,22 @@
+{
+  "id": "hand-drawn-editorial",
+  "name": "Japanese Hand-Drawn Editorial",
+  "mood": "Organic, sketched, human. For workshops, ideation, and informal teaching.",
+  "palette": {
+    "bg": "FCFBF7",
+    "bgAlt": "F0ECE0",
+    "ink": "33312C",
+    "inkSoft": "857F72",
+    "accent": "D9743B",
+    "accent2": "4C7A6E",
+    "chart": ["D9743B", "4C7A6E", "C7A33B", "8C6E9E", "6E8CA0"]
+  },
+  "type": {
+    "heading": "Comic Sans MS",
+    "body": "Verdana",
+    "mono": "Courier New",
+    "scale": { "kicker": 12, "title": 28, "coverTitle": 46, "body": 15, "caption": 10, "stat": 68 }
+  },
+  "layout": { "marginX": 0.8, "marginY": 0.7, "titleY": 0.7, "bodyGap": 0.34, "bullet": "–", "rule": false },
+  "decor": { "coverShape": "circle", "sectionBand": false }
+}

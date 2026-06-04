@@ -1,0 +1,145 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/vedraut/slidesage/schemas/storyboard.schema.json",
+  "title": "SlideSage Storyboard",
+  "description": "Declarative deck contract. An LLM produces this; scripts/generate.mjs renders it to .pptx.",
+  "type": "object",
+  "required": ["meta", "slides"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["title", "mode", "style"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "subtitle": { "type": "string" },
+        "author": { "type": "string" },
+        "audience": { "type": "string" },
+        "mode": { "type": "string", "enum": ["business", "education"], "default": "business" },
+        "style": {
+          "type": "string",
+          "enum": [
+            "japanese-editorial", "soft-clay-3d", "futuristic-tech",
+            "minimalist-luxury", "modern-illustration", "hand-drawn-editorial"
+          ]
+        },
+        "durationMin": { "type": "integer", "minimum": 1 },
+        "governingThought": {
+          "type": "string",
+          "description": "business mode: the one-line recommendation the whole deck supports (Pyramid Principle)."
+        }
+      }
+    },
+    "objectives": {
+      "type": "array",
+      "description": "education mode: Bloom's-aligned learning objectives.",
+      "items": {
+        "type": "object",
+        "required": ["id", "bloom", "statement"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "bloom": {
+            "type": "string",
+            "enum": ["remember", "understand", "apply", "analyze", "evaluate", "create"]
+          },
+          "statement": { "type": "string" }
+        }
+      }
+    },
+    "concepts": {
+      "type": "array",
+      "description": "education mode: concepts and their prerequisites (a DAG).",
+      "items": {
+        "type": "object",
+        "required": ["id", "label"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "prerequisites": { "type": "array", "items": { "type": "string" } },
+          "assumed": { "type": "boolean", "description": "true = prior knowledge; valid as a prerequisite without a teaching slide." }
+        }
+      }
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["archetype", "actionTitle"],
+        "additionalProperties": false,
+        "properties": {
+          "archetype": {
+            "type": "string",
+            "enum": [
+              "cover", "agenda", "section", "content", "two-column",
+              "data", "quote", "comparison", "worked-example", "retrieval",
+              "summary", "callToAction", "references"
+            ]
+          },
+          "actionTitle": {
+            "type": "string",
+            "description": "Full-sentence takeaway. NOT a topic label.",
+            "minLength": 1
+          },
+          "kicker": { "type": "string", "description": "Small eyebrow label above the title (e.g. section name)." },
+          "body": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Bullet/point strings. Keep to <=5, <=12 words each."
+          },
+          "columns": {
+            "type": "array",
+            "description": "For two-column / comparison archetypes.",
+            "items": {
+              "type": "object",
+              "required": ["heading", "points"],
+              "properties": {
+                "heading": { "type": "string" },
+                "points": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          },
+          "visual": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": { "type": "string", "enum": ["none", "chart", "image", "diagram", "stat"] },
+              "chartType": { "type": "string", "enum": ["bar", "line", "pie", "doughnut", "area"] },
+              "data": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "labels": { "type": "array", "items": { "type": "string" } },
+                    "values": { "type": "array", "items": { "type": "number" } }
+                  }
+                }
+              },
+              "imagePath": { "type": "string" },
+              "stat": { "type": "string", "description": "Big-number hero stat, e.g. '3.2x'." },
+              "caption": { "type": "string" }
+            }
+          },
+          "quote": {
+            "type": "object",
+            "properties": { "text": { "type": "string" }, "attribution": { "type": "string" } }
+          },
+          "citations": { "type": "array", "items": { "type": "string" } },
+          "covers": { "type": "array", "items": { "type": "string" }, "description": "education: objective ids." },
+          "teaches": { "type": "array", "items": { "type": "string" }, "description": "education: concept ids." },
+          "narrativeRole": {
+            "type": "string",
+            "enum": ["situation", "complication", "question", "resolution", "ask",
+                     "instruct", "example", "retrieve", "recap", "transition"]
+          },
+          "sectionId": { "type": "string", "description": "Groups slides into acts; used to place section dividers." },
+          "notes": { "type": "string", "description": "Speaker notes." }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "slidesage",
+  "version": "0.1.0",
+  "description": "Agent-agnostic skill that generates beautiful, static .pptx decks driven by storytelling and instructional design.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Ved Raut",
+  "homepage": "https://github.com/vedraut/slidesage",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vedraut/slidesage.git"
+  },
+  "keywords": [
+    "pptx", "powerpoint", "presentation", "slides", "skill", "llm", "claude",
+    "agent", "instructional-design", "storytelling", "pptxgenjs"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "validate": "node scripts/validate-storyboard.mjs",
+    "check-dag": "node scripts/check-dag.mjs",
+    "qa": "node scripts/qa-report.mjs",
+    "example:business": "node scripts/generate.mjs --in examples/business-pitch/storyboard.json --style futuristic-tech --out examples/business-pitch/deck.pptx",
+    "example:education": "node scripts/generate.mjs --in examples/education-lesson/storyboard.json --style soft-clay-3d --out examples/education-lesson/deck.pptx"
+  },
+  "dependencies": {
+    "pptxgenjs": "^3.12.0",
+    "jszip": "^3.10.1"
+  }
+}

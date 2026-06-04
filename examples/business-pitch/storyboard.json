@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "title": "Loomweave — Series A",
+    "subtitle": "Pedagogy-grade AI presentation design",
+    "author": "Loomweave",
+    "audience": "Series A investors",
+    "mode": "business",
+    "style": "futuristic-tech",
+    "durationMin": 14,
+    "governingThought": "Presentation design is a $40B chore; we automate it with pedagogy-grade AI — back us to own the category."
+  },
+  "slides": [
+    { "archetype": "cover", "kicker": "Series A · 2026",
+      "actionTitle": "We turn hours of slide-making into one good prompt.",
+      "body": ["Loomweave — pedagogy-grade AI presentation design"] },
+
+    { "archetype": "agenda", "actionTitle": "Here's the path through the next ten minutes.",
+      "body": ["The hidden cost of decks", "Why now", "Our answer", "Traction", "The ask"] },
+
+    { "archetype": "section", "kicker": "Act I", "sectionId": "setup",
+      "actionTitle": "Every knowledge worker is a part-time, unwilling designer." },
+
+    { "archetype": "content", "sectionId": "setup", "narrativeRole": "situation",
+      "actionTitle": "Decks are everywhere — and everyone hates making them.",
+      "body": ["~35M knowledge workers build decks weekly", "Avg 4.7 hrs per deck", "Most aren't designers and know it"] },
+
+    { "archetype": "data", "sectionId": "setup", "narrativeRole": "complication",
+      "actionTitle": "That lost time is a $40B annual productivity leak.",
+      "visual": { "type": "stat", "stat": "$40B", "caption": "annual time lost to manual deck-building (illustrative)" },
+      "body": ["Existing tools template the look", "None fix the thinking or the story"],
+      "citations": ["Illustrative market model, 2026"] },
+
+    { "archetype": "section", "kicker": "Act II", "sectionId": "why-now",
+      "actionTitle": "We've shown the pain — here's why the timing is finally right." },
+
+    { "archetype": "content", "sectionId": "why-now", "narrativeRole": "question",
+      "actionTitle": "LLMs can now reason about a deck, not just restyle it.",
+      "body": ["Frontier models follow instructional design", "Structured output makes rendering deterministic", "Buyers already trust AI for first drafts"] },
+
+    { "archetype": "data", "sectionId": "why-now",
+      "actionTitle": "AI-assisted content creation is compounding fast.",
+      "visual": { "type": "chart", "chartType": "line",
+        "data": [{ "name": "Adoption index", "labels": ["2023","2024","2025","2026"], "values": [12,28,55,92] }] },
+      "citations": ["Illustrative adoption index, 2026"] },
+
+    { "archetype": "section", "kicker": "Act III", "sectionId": "answer",
+      "actionTitle": "Here's our answer: separate the thinking from the rendering." },
+
+    { "archetype": "content", "sectionId": "answer", "narrativeRole": "resolution",
+      "actionTitle": "Loomweave reasons out a storyboard, then renders a flawless deck.",
+      "body": ["Storytelling + instructional-design engine", "Deterministic, on-brand rendering", "Works with any LLM the customer already uses"] },
+
+    { "archetype": "comparison", "sectionId": "answer",
+      "actionTitle": "We win where template tools and raw chatbots both stall.",
+      "columns": [
+        { "heading": "Status quo", "points": ["Pretty but empty templates", "Chatbots dump walls of text", "No narrative discipline"] },
+        { "heading": "Loomweave", "points": ["Story-first structure", "One message per slide", "Beautiful, consistent output"] }
+      ] },
+
+    { "archetype": "data", "sectionId": "answer",
+      "actionTitle": "Early traction compounds across the pilot cohort.",
+      "visual": { "type": "chart", "chartType": "bar",
+        "data": [{ "name": "ARR ($M)", "labels": ["Q1","Q2","Q3","Q4"], "values": [0.4,1.1,2.3,4.6] }] },
+      "body": ["3.2× net revenue retention", "11-day median sales cycle"],
+      "citations": ["Internal pilot data, 2026 (illustrative)"] },
+
+    { "archetype": "summary", "sectionId": "answer",
+      "actionTitle": "Presentation design is a $40B chore — and we automate the hard part.",
+      "body": ["Pedagogy-grade AI, not just templates", "Provider-agnostic by design", "Compounding early traction"] },
+
+    { "archetype": "callToAction",
+      "actionTitle": "Back us to own the category before it consolidates.",
+      "body": ["Raising $9M Series A", "18-month plan to category leadership", "Let's schedule a partner deep-dive this week"] }
+  ]
+}

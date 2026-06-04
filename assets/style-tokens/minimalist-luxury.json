@@ -1,0 +1,22 @@
+{
+  "id": "minimalist-luxury",
+  "name": "Minimalist Luxury Branding",
+  "mood": "Premium, restrained, lots of whitespace. For brand proposals and executive pitches.",
+  "palette": {
+    "bg": "FBFAF7",
+    "bgAlt": "F1EEE7",
+    "ink": "1A1A1A",
+    "inkSoft": "8A8377",
+    "accent": "B08D57",
+    "accent2": "1A1A1A",
+    "chart": ["B08D57", "1A1A1A", "C9B89A", "6E6658", "D8CFC0"]
+  },
+  "type": {
+    "heading": "Georgia",
+    "body": "Arial",
+    "mono": "Courier New",
+    "scale": { "kicker": 11, "title": 32, "coverTitle": 54, "body": 16, "caption": 10, "stat": 72 }
+  },
+  "layout": { "marginX": 0.9, "marginY": 0.8, "titleY": 0.8, "bodyGap": 0.34, "bullet": "none", "rule": true },
+  "decor": { "coverShape": "frame", "sectionBand": false }
+}

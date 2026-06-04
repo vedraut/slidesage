@@ -1,0 +1,22 @@
+{
+  "id": "modern-illustration",
+  "name": "Modern Illustration Editorial",
+  "mood": "Bright, conceptual, vector-illustration friendly. For thought leadership and marketing.",
+  "palette": {
+    "bg": "FFFFFF",
+    "bgAlt": "F3F6FF",
+    "ink": "16213A",
+    "inkSoft": "5C6B8A",
+    "accent": "3D5AFE",
+    "accent2": "FF6F61",
+    "chart": ["3D5AFE", "FF6F61", "00BFA6", "FFB300", "8E24AA"]
+  },
+  "type": {
+    "heading": "Trebuchet MS",
+    "body": "Arial",
+    "mono": "Consolas",
+    "scale": { "kicker": 12, "title": 30, "coverTitle": 50, "body": 16, "caption": 11, "stat": 78 }
+  },
+  "layout": { "marginX": 0.7, "marginY": 0.6, "titleY": 0.6, "bodyGap": 0.34, "bullet": "•", "rule": true },
+  "decor": { "coverShape": "block", "sectionBand": true }
+}

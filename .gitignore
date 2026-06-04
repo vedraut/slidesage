@@ -1,0 +1,6 @@
+node_modules/
+*.log
+.DS_Store
+# generated decks (keep storyboards + previews, not binaries)
+examples/**/deck.pptx
+*.tmp.pptx

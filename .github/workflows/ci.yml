@@ -1,0 +1,29 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-decks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+
+      - name: Business example — validate, render, QA
+        run: |
+          node scripts/validate-storyboard.mjs examples/business-pitch/storyboard.json
+          node scripts/generate.mjs --in examples/business-pitch/storyboard.json --style futuristic-tech --out /tmp/business.pptx
+          node scripts/qa-report.mjs --storyboard examples/business-pitch/storyboard.json --deck /tmp/business.pptx
+
+      - name: Education example — validate, DAG, render, QA
+        run: |
+          node scripts/validate-storyboard.mjs examples/education-lesson/storyboard.json
+          node scripts/check-dag.mjs examples/education-lesson/storyboard.json
+          node scripts/generate.mjs --in examples/education-lesson/storyboard.json --style soft-clay-3d --out /tmp/education.pptx
+          node scripts/qa-report.mjs --storyboard examples/education-lesson/storyboard.json --deck /tmp/education.pptx

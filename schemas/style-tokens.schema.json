@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/vedraut/slidesage/schemas/style-tokens.schema.json",
+  "title": "SlideSage Style Tokens",
+  "description": "Machine-readable design system consumed by the renderer.",
+  "type": "object",
+  "required": ["id", "name", "palette", "type", "layout"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "mood": { "type": "string" },
+    "palette": {
+      "type": "object",
+      "required": ["bg", "ink", "accent"],
+      "additionalProperties": false,
+      "properties": {
+        "bg": { "type": "string", "description": "hex without #" },
+        "bgAlt": { "type": "string" },
+        "ink": { "type": "string", "description": "primary text" },
+        "inkSoft": { "type": "string", "description": "secondary text" },
+        "accent": { "type": "string" },
+        "accent2": { "type": "string" },
+        "chart": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "type": {
+      "type": "object",
+      "required": ["heading", "body", "scale"],
+      "additionalProperties": false,
+      "properties": {
+        "heading": { "type": "string", "description": "font face name" },
+        "body": { "type": "string" },
+        "mono": { "type": "string" },
+        "scale": {
+          "type": "object",
+          "description": "point sizes",
+          "properties": {
+            "kicker": { "type": "number" },
+            "title": { "type": "number" },
+            "coverTitle": { "type": "number" },
+            "body": { "type": "number" },
+            "caption": { "type": "number" },
+            "stat": { "type": "number" }
+          }
+        }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "marginX": { "type": "number", "description": "inches" },
+        "marginY": { "type": "number" },
+        "titleY": { "type": "number" },
+        "bodyGap": { "type": "number" },
+        "bullet": { "type": "string", "description": "bullet glyph or 'none'" },
+        "rule": { "type": "boolean", "description": "draw a thin accent rule under titles" }
+      }
+    },
+    "decor": {
+      "type": "object",
+      "description": "Optional decorative motifs.",
+      "properties": {
+        "coverShape": { "type": "string", "enum": ["none", "block", "diagonal", "circle", "frame"] },
+        "sectionBand": { "type": "boolean" }
+      }
+    }
+  }
+}

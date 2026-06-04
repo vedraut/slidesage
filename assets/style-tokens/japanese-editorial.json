@@ -1,0 +1,22 @@
+{
+  "id": "japanese-editorial",
+  "name": "Japanese Editorial (Washi & Soft Glow)",
+  "mood": "Calm, editorial, generous whitespace, warm paper tones.",
+  "palette": {
+    "bg": "F6F3EC",
+    "bgAlt": "ECE6DA",
+    "ink": "2B2A28",
+    "inkSoft": "7A756B",
+    "accent": "B5524B",
+    "accent2": "3F6F66",
+    "chart": ["B5524B", "3F6F66", "C99A57", "6E7B8B", "A7A092"]
+  },
+  "type": {
+    "heading": "Georgia",
+    "body": "Arial",
+    "mono": "Courier New",
+    "scale": { "kicker": 11, "title": 28, "coverTitle": 46, "body": 15, "caption": 10, "stat": 66 }
+  },
+  "layout": { "marginX": 0.85, "marginY": 0.75, "titleY": 0.75, "bodyGap": 0.34, "bullet": "・", "rule": false },
+  "decor": { "coverShape": "circle", "sectionBand": false }
+}

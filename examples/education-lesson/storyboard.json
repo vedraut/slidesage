@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "Recursion, one frame at a time",
+    "subtitle": "Intro CS · Lesson 7",
+    "author": "CS101",
+    "audience": "First-year students who know functions",
+    "mode": "education",
+    "style": "soft-clay-3d",
+    "durationMin": 12
+  },
+  "objectives": [
+    { "id": "obj-base", "bloom": "understand", "statement": "Learners can explain what a base case is and why recursion needs one." },
+    { "id": "obj-trace", "bloom": "apply", "statement": "Learners can trace a recursive function by hand to its result." }
+  ],
+  "concepts": [
+    { "id": "func", "label": "Functions", "prerequisites": [], "assumed": true },
+    { "id": "base", "label": "Base case", "prerequisites": ["func"] },
+    { "id": "recstep", "label": "Recursive case", "prerequisites": ["func"] },
+    { "id": "rec", "label": "Recursion (whole)", "prerequisites": ["base", "recstep"] }
+  ],
+  "slides": [
+    { "archetype": "cover", "kicker": "Lesson 7",
+      "actionTitle": "A function that calls itself — let's make that feel obvious.",
+      "body": ["Recursion, one frame at a time"] },
+
+    { "archetype": "content", "narrativeRole": "instruct", "covers": ["obj-base", "obj-trace"],
+      "actionTitle": "By the end, you can explain a base case and trace a recursive call.",
+      "body": ["Explain why recursion needs a base case", "Trace a recursive function by hand"] },
+
+    { "archetype": "section", "kicker": "Concept 1", "sectionId": "base",
+      "actionTitle": "First, the part that stops the loop: the base case." },
+
+    { "archetype": "content", "sectionId": "base", "narrativeRole": "instruct", "teaches": ["base"],
+      "actionTitle": "The base case is the question that needs no further recursion.",
+      "body": ["It returns a value directly", "Without it, recursion never stops", "factorial(0) = 1 is a base case"] },
+
+    { "archetype": "retrieval", "sectionId": "base", "narrativeRole": "retrieve", "covers": ["obj-base"],
+      "actionTitle": "Can you spot what goes wrong without a base case?",
+      "body": ["What does factorial(0) return, and why?", "What happens if we delete the base case?"] },
+
+    { "archetype": "section", "kicker": "Concept 2", "sectionId": "step",
+      "actionTitle": "You can name the stop — now the step that shrinks the problem." },
+
+    { "archetype": "content", "sectionId": "step", "narrativeRole": "instruct", "teaches": ["recstep"],
+      "actionTitle": "The recursive case rebuilds the answer from a smaller one.",
+      "body": ["factorial(n) = n × factorial(n−1)", "Each call moves toward the base case", "Trust the smaller call to be correct"] },
+
+    { "archetype": "worked-example", "sectionId": "step", "narrativeRole": "example", "teaches": ["rec"],
+      "actionTitle": "Trace factorial(3) one frame at a time.",
+      "body": ["factorial(3) calls factorial(2)", "factorial(2) calls factorial(1)", "factorial(1) calls factorial(0)", "factorial(0) returns 1 (base case)", "unwind: 1·1·2·3 = 6"] },
+
+    { "archetype": "retrieval", "sectionId": "step", "narrativeRole": "retrieve", "covers": ["obj-trace"],
+      "actionTitle": "Now trace one yourself before we reveal it.",
+      "body": ["Trace factorial(4) by hand", "Where exactly does it hit the base case?"] },
+
+    { "archetype": "two-column", "sectionId": "step",
+      "actionTitle": "Every recursive function needs both halves working together.",
+      "columns": [
+        { "heading": "Base case", "points": ["Stops the recursion", "Returns directly", "factorial(0) = 1"] },
+        { "heading": "Recursive case", "points": ["Shrinks the problem", "Calls itself", "n × factorial(n−1)"] }
+      ] },
+
+    { "archetype": "summary", "narrativeRole": "recap",
+      "actionTitle": "Recursion is just a base case plus a step toward it.",
+      "body": ["Base case stops; recursive case shrinks", "Trace by trusting the smaller call", "Missing base case = infinite recursion"] },
+
+    { "archetype": "references", "actionTitle": "Where to go deeper.",
+      "citations": ["Abelson & Sussman, SICP, ch.1", "Course notes: CS101 Lesson 7"] }
+  ]
+}

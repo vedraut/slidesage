@@ -1,0 +1,22 @@
+{
+  "id": "soft-clay-3d",
+  "name": "Soft 3D Clay",
+  "mood": "Warm, friendly, rounded claymorphism. Great for education and onboarding.",
+  "palette": {
+    "bg": "F4F1FB",
+    "bgAlt": "E9E3FA",
+    "ink": "2E2A4A",
+    "inkSoft": "7B749C",
+    "accent": "8B7CF6",
+    "accent2": "F2A65A",
+    "chart": ["8B7CF6", "F2A65A", "5BD1C6", "F285B0", "7CC0F8"]
+  },
+  "type": {
+    "heading": "Verdana",
+    "body": "Verdana",
+    "mono": "Consolas",
+    "scale": { "kicker": 12, "title": 30, "coverTitle": 50, "body": 16, "caption": 11, "stat": 76 }
+  },
+  "layout": { "marginX": 0.7, "marginY": 0.6, "titleY": 0.6, "bodyGap": 0.36, "bullet": "•", "rule": false },
+  "decor": { "coverShape": "circle", "sectionBand": true }
+}
