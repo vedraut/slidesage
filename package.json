@@ -22,6 +22,8 @@
     "validate": "node scripts/validate-storyboard.mjs",
     "check-dag": "node scripts/check-dag.mjs",
     "qa": "node scripts/qa-report.mjs",
+    "transitions": "node scripts/inject-transitions.mjs",
+    "builds": "node scripts/inject-builds.mjs",
     "example:business": "node scripts/generate.mjs --in examples/business-pitch/storyboard.json --style futuristic-tech --out examples/business-pitch/deck.pptx",
     "example:education": "node scripts/generate.mjs --in examples/education-lesson/storyboard.json --style soft-clay-3d --out examples/education-lesson/deck.pptx"
   },

@@ -83,12 +83,23 @@ Add a brand logo pinned to the top-right of every slide with `--logo path/to/log
 in the storyboard). Titles automatically reserve space so they never run under the logo. If the logo has a
 white/light wordmark, recolor it for light backgrounds first.
 
-### Step 6 — (Optional) transitions — OFF by default
-Only if the user asks for motion. Pass the storyboard so section dividers turn like a chapter (push) and the
-rest fade:
+### Step 6 — (Optional) motion — OFF by default
+Only if the user asks for motion. Two independent, stackable injectors:
+
+**Slide transitions** (between slides). Pass the storyboard so section dividers turn like a chapter (push) and
+the rest fade:
 ```bash
 node scripts/inject-transitions.mjs --in deck.pptx --storyboard storyboard.json
 ```
+
+**Click builds** (within a slide): the title appears on the first click, then each body topic appears one-by-one
+on subsequent clicks. Run this AFTER transitions:
+```bash
+node scripts/inject-builds.mjs --in deck.pptx
+```
+Builds target the shapes the renderer tags `sage-title` / `sage-body`, so they apply automatically to content,
+data, summary, two-column, comparison, and call-to-action slides. These are intricate OOXML animations —
+confirm playback in PowerPoint before presenting.
 
 ### Step 7 — QA gate (always)
 ```bash

@@ -54,7 +54,9 @@ See **`SKILL.md`** for the full agent-facing workflow and **`PLAN.md`** for the 
 `futuristic-tech` · `corporate-bright` · `minimalist-luxury` · `modern-illustration` · `soft-clay-3d` ·
 `japanese-editorial` · `hand-drawn-editorial`. Each is a machine-readable token set in `assets/style-tokens/`
 plus a usage guide in `references/style-systems/`. Add a brand logo to every slide with
-`--logo path/to/logo.png`, and optional fade/push transitions with `scripts/inject-transitions.mjs`.
+`--logo path/to/logo.png`. Optional, off-by-default motion: fade/push slide **transitions**
+(`scripts/inject-transitions.mjs`) and on-click **build animations** that reveal the title then each topic
+one-by-one (`scripts/inject-builds.mjs`).
 
 ## Examples
 

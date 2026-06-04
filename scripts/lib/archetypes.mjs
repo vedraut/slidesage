@@ -22,7 +22,7 @@ function kicker(slide, sd, T) {
 function title(slide, sd, T, opts = {}) {
   const b = titleBox(T);
   slide.addText(sd.actionTitle, {
-    x: b.x, y: b.y, w: b.w, h: b.h,
+    x: b.x, y: b.y, w: b.w, h: b.h, objectName: "sage-title",
     fontFace: T.type.heading, fontSize: opts.size || T.type.scale.title, bold: true,
     color: hex(opts.color || T.palette.ink), align: "left", valign: "top", lineSpacingMultiple: 1.02,
   });
@@ -105,7 +105,7 @@ export function content(pptx, slide, sd, T) {
   const box = contentBox(T);
   if (sd.body && sd.body.length) {
     slide.addText(bulletRuns(sd.body, T, hex(T.palette.ink)), {
-      x: box.x, y: top, w: box.w, h: SLIDE_H - top - T.layout.marginY, valign: "top",
+      x: box.x, y: top, w: box.w, h: SLIDE_H - top - T.layout.marginY, valign: "top", objectName: "sage-body",
     });
   }
   notes(slide, sd);
@@ -132,7 +132,7 @@ export function twoColumn(pptx, slide, sd, T) {
       });
     }
     slide.addText(bulletRuns(c.points || [], T, hex(T.palette.ink)), {
-      x, y: top + (c.heading ? 0.55 : 0), w: colW, h: SLIDE_H - top - T.layout.marginY - 0.55, valign: "top",
+      x, y: top + (c.heading ? 0.55 : 0), w: colW, h: SLIDE_H - top - T.layout.marginY - 0.55, valign: "top", objectName: "sage-body",
     });
   });
   notes(slide, sd);
@@ -160,7 +160,7 @@ export function comparison(pptx, slide, sd, T) {
       fontFace: T.type.heading, fontSize: T.type.scale.body + 3, bold: true, color: hex(accent),
     });
     slide.addText(bulletRuns(c.points || [], T, hex(T.palette.ink)), {
-      x: x + 0.25, y: top + 0.8, w: colW - 0.5, h: SLIDE_H - top - T.layout.marginY - 1.0, valign: "top",
+      x: x + 0.25, y: top + 0.8, w: colW - 0.5, h: SLIDE_H - top - T.layout.marginY - 1.0, valign: "top", objectName: "sage-body",
     });
   });
   notes(slide, sd);
@@ -194,7 +194,7 @@ export function data(pptx, slide, sd, T) {
   }
   if (hasText) {
     slide.addText(bulletRuns(sd.body, T, hex(T.palette.ink)), {
-      x: box.x + chartW + 0.5, y: top, w: box.w - chartW - 0.5, h: SLIDE_H - top - T.layout.marginY, valign: "top",
+      x: box.x + chartW + 0.5, y: top, w: box.w - chartW - 0.5, h: SLIDE_H - top - T.layout.marginY, valign: "top", objectName: "sage-body",
     });
   }
   notes(slide, sd);
@@ -290,13 +290,13 @@ export function callToAction(pptx, slide, sd, T) {
   background(slide, T, true);
   slide.addShape(pptx.ShapeType.rect, { x: 0, y: 0, w: 0.4, h: SLIDE_H, fill: { color: hex(T.palette.accent) }, line: { type: "none" } });
   slide.addText(sd.actionTitle, {
-    x: 1.0, y: 2.6, w: SLIDE_W - 2.0, h: 1.8,
+    x: 1.0, y: 2.6, w: SLIDE_W - 2.0, h: 1.8, objectName: "sage-title",
     fontFace: T.type.heading, fontSize: T.type.scale.title + 8, bold: true,
     color: hex(T.palette.ink), valign: "top",
   });
   if (sd.body && sd.body.length) {
     slide.addText(bulletRuns(sd.body, T, hex(T.palette.inkSoft)), {
-      x: 1.0, y: 4.6, w: SLIDE_W - 2.0, h: 1.6, valign: "top",
+      x: 1.0, y: 4.6, w: SLIDE_W - 2.0, h: 1.6, valign: "top", objectName: "sage-body",
     });
   }
   notes(slide, sd);
