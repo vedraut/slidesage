@@ -4,3 +4,7 @@ node_modules/
 # generated decks (keep storyboards + previews, not binaries)
 examples/**/deck.pptx
 *.tmp.pptx
+# user output decks + render artifacts
+decks/
+*.pdf
+*.png

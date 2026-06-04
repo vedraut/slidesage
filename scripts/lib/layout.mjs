@@ -15,9 +15,9 @@ export function titleBox(T) {
   return { x, y: T.layout.titleY, w: SLIDE_W - 2 * x, h: 1.1 };
 }
 
-/** Y coordinate where body content should start, just below the title + optional rule. */
+/** Y coordinate where body content should start, clearing a two-line title + optional rule. */
 export function bodyTop(T) {
-  return T.layout.titleY + 1.15 + (T.layout.rule ? 0.12 : 0);
+  return T.layout.titleY + (T.layout.rule ? 1.55 : 1.3);
 }
 
 /** Convert a list of strings into PptxGenJS bullet runs honouring the style's bullet glyph. */

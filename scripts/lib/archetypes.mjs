@@ -27,8 +27,9 @@ function title(slide, sd, T, opts = {}) {
     color: hex(opts.color || T.palette.ink), align: "left", valign: "top", lineSpacingMultiple: 1.02,
   });
   if (T.layout.rule) {
+    // Sits below a two-line action title so it never strikes through wrapped text.
     slide.addShape(pptxRect, {
-      x: b.x, y: b.y + 1.0, w: 1.4, h: 0.06,
+      x: b.x, y: b.y + 1.28, w: 1.4, h: 0.06,
       fill: { color: hex(T.palette.accent) }, line: { type: "none" },
     });
   }
