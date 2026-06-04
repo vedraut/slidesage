@@ -316,12 +316,12 @@ export function pipeline(pptx, slide, sd, T) {
   });
   const n = nodes.length;
   if (n) {
-    const arrowGap = 0.5;
+    const arrowGap = n >= 6 ? 0.32 : 0.5;
     const boxH = 1.5;
     const areaH = SLIDE_H - top - T.layout.marginY;
     const y = top + Math.max(0, (areaH - boxH) / 2);
     const boxW = (box.w - arrowGap * (n - 1)) / n;
-    const labelSize = n >= 5 ? T.type.scale.body - 3 : T.type.scale.body;
+    const labelSize = n >= 6 ? T.type.scale.body - 4 : n >= 5 ? T.type.scale.body - 3 : T.type.scale.body;
     nodes.forEach((nd, i) => {
       const x = box.x + i * (boxW + arrowGap);
       slide.addShape(pptx.ShapeType.roundRect, {
