@@ -302,6 +302,47 @@ export function callToAction(pptx, slide, sd, T) {
   notes(slide, sd);
 }
 
+export function pipeline(pptx, slide, sd, T) {
+  // A horizontal flow of labelled boxes joined by arrows — architecture/sequence diagrams.
+  // `sd.flow` is an array of strings; a "\n" splits a node into label + sub-label.
+  background(slide, T);
+  kicker(slide, sd, T);
+  title(slide, sd, T);
+  const top = bodyTop(T);
+  const box = contentBox(T);
+  const nodes = (sd.flow || []).map((s) => {
+    const [label, ...rest] = String(s).split("\n");
+    return { label, sub: rest.join(" ") };
+  });
+  const n = nodes.length;
+  if (n) {
+    const arrowGap = 0.5;
+    const boxH = 1.5;
+    const areaH = SLIDE_H - top - T.layout.marginY;
+    const y = top + Math.max(0, (areaH - boxH) / 2);
+    const boxW = (box.w - arrowGap * (n - 1)) / n;
+    const labelSize = n >= 5 ? T.type.scale.body - 3 : T.type.scale.body;
+    nodes.forEach((nd, i) => {
+      const x = box.x + i * (boxW + arrowGap);
+      slide.addShape(pptx.ShapeType.roundRect, {
+        x, y, w: boxW, h: boxH, rectRadius: 0.08,
+        fill: { color: hex(T.palette.bgAlt || T.palette.bg) },
+        line: { color: hex(T.palette.accent), width: 1.25 },
+      });
+      const runs = [{ text: nd.label, options: { fontFace: T.type.heading, fontSize: labelSize, bold: true, color: hex(T.palette.ink), align: "center", breakLine: true } }];
+      if (nd.sub) runs.push({ text: nd.sub, options: { fontFace: T.type.body, fontSize: T.type.scale.caption, color: hex(T.palette.inkSoft), align: "center" } });
+      slide.addText(runs, { x: x + 0.08, y, w: boxW - 0.16, h: boxH, align: "center", valign: "middle" });
+      if (i < n - 1) {
+        slide.addText("→", {
+          x: x + boxW, y, w: arrowGap, h: boxH, align: "center", valign: "middle",
+          fontFace: T.type.heading, fontSize: T.type.scale.title, bold: true, color: hex(T.palette.accent),
+        });
+      }
+    });
+  }
+  notes(slide, sd);
+}
+
 export function references(pptx, slide, sd, T) {
   background(slide, T);
   kicker(slide, { ...sd, kicker: sd.kicker || "References" }, T);
@@ -318,7 +359,7 @@ export function references(pptx, slide, sd, T) {
 
 export const BUILDERS = {
   cover, agenda, section, content,
-  "two-column": twoColumn, comparison, data, quote,
+  "two-column": twoColumn, comparison, data, quote, pipeline,
   "worked-example": workedExample, retrieval, summary,
   callToAction, references,
 };

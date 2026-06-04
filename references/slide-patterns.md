@@ -49,6 +49,14 @@ See `chart-design.md`. One series unless a comparison is the point. Put the take
   ] }
 ```
 
+## pipeline (architecture / sequence)
+```jsonc
+{ "archetype": "pipeline", "actionTitle": "Every request flows through five hops from client to Oracle.",
+  "flow": ["Client", "RestAPIWrapper\n.NET 8 · :5040", "HandlerBridge\n.NET 4.8 · :5100", "WCF DLL", "Oracle / IDL"] }
+```
+A `"\n"` splits a node into a bold label + a small sub-label. Keep to ~3–6 nodes so the boxes stay legible;
+the renderer auto-shrinks labels at 5+ nodes. Great for system architecture and request/invocation sequences.
+
 ## worked-example (education)
 ```jsonc
 { "archetype": "worked-example", "actionTitle": "Trace factorial(3) one frame at a time.", "teaches": ["rec"],

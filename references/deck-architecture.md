@@ -12,6 +12,7 @@ How to turn a spine (`narrative-frameworks.md`) into a concrete slide list.
 | `content` | One idea + supporting points | `body[]` (≤5) |
 | `two-column` | Two related groups | `columns[]` or `body[]` (auto-split) |
 | `comparison` | A vs B, before/after | `columns[]` (2, panelled) |
+| `pipeline` | Architecture / sequence flow | `flow[]` (labelled boxes joined by arrows) |
 | `data` | Chart, hero stat, or image | `visual` (+ optional `body[]` takeaways) |
 | `quote` | Testimonial / principle | `quote.text`, `quote.attribution` |
 | `worked-example` | *(education)* step-by-step | `body[]` (numbered steps) |

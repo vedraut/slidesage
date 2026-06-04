@@ -80,7 +80,7 @@
             "type": "string",
             "enum": [
               "cover", "agenda", "section", "content", "two-column",
-              "data", "quote", "comparison", "worked-example", "retrieval",
+              "data", "quote", "comparison", "pipeline", "worked-example", "retrieval",
               "summary", "callToAction", "references"
             ]
           },
@@ -94,6 +94,11 @@
             "type": "array",
             "items": { "type": "string" },
             "description": "Bullet/point strings. Keep to <=5, <=12 words each."
+          },
+          "flow": {
+            "type": "array",
+            "description": "For the pipeline archetype: ordered node labels (a '\\n' splits label from sub-label).",
+            "items": { "type": "string" }
           },
           "columns": {
             "type": "array",
