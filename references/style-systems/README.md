@@ -12,7 +12,8 @@ renderer consumes; the `.md` next to this file explains when to use it.
 
 | Style id | Vibe | Reach for it when… |
 |---|---|---|
-| `futuristic-tech` | Dark, sharp, data-forward | Product launches, strategy, fintech, anything metrics-heavy. **Business default.** |
+| `futuristic-tech` | Dark, sharp, data-forward | Product launches, strategy, fintech, anything metrics-heavy. **Business default (dark).** |
+| `corporate-bright` | Light, clean, blue/green | Technical demos, internal reviews, brand-aligned decks. **Business default (bright).** Pairs with `--logo`. |
 | `minimalist-luxury` | Light, premium, airy | Brand/exec proposals, high-end pitches, board decks. |
 | `modern-illustration` | Bright, bold, friendly-pro | Marketing, thought leadership, conference talks. |
 | `soft-clay-3d` | Warm, rounded, approachable | Education, onboarding, internal enablement. **Education default.** |

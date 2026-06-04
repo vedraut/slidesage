@@ -21,13 +21,18 @@
           "type": "string",
           "enum": [
             "japanese-editorial", "soft-clay-3d", "futuristic-tech",
-            "minimalist-luxury", "modern-illustration", "hand-drawn-editorial"
+            "minimalist-luxury", "modern-illustration", "hand-drawn-editorial",
+            "corporate-bright"
           ]
         },
         "durationMin": { "type": "integer", "minimum": 1 },
         "governingThought": {
           "type": "string",
           "description": "business mode: the one-line recommendation the whole deck supports (Pyramid Principle)."
+        },
+        "logo": {
+          "type": "string",
+          "description": "Optional path to a PNG brand logo, pinned top-right on every slide. CLI --logo overrides this."
         }
       }
     },

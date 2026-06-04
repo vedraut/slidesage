@@ -9,10 +9,15 @@ export function contentBox(T) {
   return { x, y, w: SLIDE_W - 2 * x, h: SLIDE_H - 2 * y };
 }
 
+// Space reserved on the right edge so titles don't run under a corner logo.
+let rightGutter = 0;
+export function setRightGutter(inches) { rightGutter = inches || 0; }
+
 /** Standard title block geometry (used by most content archetypes). */
 export function titleBox(T) {
   const x = T.layout.marginX;
-  return { x, y: T.layout.titleY, w: SLIDE_W - 2 * x, h: 1.1 };
+  const right = Math.max(rightGutter, x);
+  return { x, y: T.layout.titleY, w: SLIDE_W - x - right, h: 1.1 };
 }
 
 /** Y coordinate where body content should start, clearing a two-line title + optional rule. */

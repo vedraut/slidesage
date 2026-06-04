@@ -9,6 +9,7 @@ const TOKENS_DIR = join(here, "..", "..", "assets", "style-tokens");
 const VALID = new Set([
   "japanese-editorial", "soft-clay-3d", "futuristic-tech",
   "minimalist-luxury", "modern-illustration", "hand-drawn-editorial",
+  "corporate-bright",
 ]);
 
 /** Strip a leading '#' so PptxGenJS gets a bare hex string. */

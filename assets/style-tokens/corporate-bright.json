@@ -1,0 +1,22 @@
+{
+  "id": "corporate-bright",
+  "name": "Corporate Bright",
+  "mood": "Clean, light, confident. White canvas with a blue/green corporate accent — strong default for technical business demos and brand-aligned decks.",
+  "palette": {
+    "bg": "FFFFFF",
+    "bgAlt": "F1F6FC",
+    "ink": "12243B",
+    "inkSoft": "5B6B82",
+    "accent": "2A6FD6",
+    "accent2": "3FA535",
+    "chart": ["2A6FD6", "3FA535", "E23B2E", "F2A100", "6E5BD1"]
+  },
+  "type": {
+    "heading": "Arial",
+    "body": "Arial",
+    "mono": "Consolas",
+    "scale": { "kicker": 12, "title": 30, "coverTitle": 48, "body": 16, "caption": 11, "stat": 80 }
+  },
+  "layout": { "marginX": 0.7, "marginY": 0.6, "titleY": 0.6, "bodyGap": 0.32, "bullet": "•", "rule": true },
+  "decor": { "coverShape": "block", "sectionBand": true }
+}

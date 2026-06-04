@@ -7,7 +7,13 @@ import { readFileSync } from "node:fs";
 import PptxGenJS from "pptxgenjs";
 import { loadStyle, hex } from "./lib/style-loader.mjs";
 import { BUILDERS, bindShapeTypes } from "./lib/archetypes.mjs";
-import { SLIDE_W, SLIDE_H } from "./lib/layout.mjs";
+import { SLIDE_W, SLIDE_H, setRightGutter } from "./lib/layout.mjs";
+
+// Read a PNG's intrinsic pixel dimensions from its IHDR header (bytes 16–23).
+function pngSize(path) {
+  const b = readFileSync(path);
+  return { w: b.readUInt32BE(16), h: b.readUInt32BE(20) };
+}
 
 function parseArgs(argv) {
   const a = {};
@@ -51,6 +57,16 @@ async function main() {
   bindShapeTypes(pptx);
   footer(pptx, T, sb.meta?.title || "");
 
+  // Optional brand logo, pinned to the top-right corner of every slide.
+  let logo = null;
+  const logoPath = args.logo || sb.meta?.logo;
+  if (logoPath) {
+    const targetW = Number(args["logo-width"]) || 1.4;
+    const { w, h } = pngSize(logoPath);
+    logo = { path: logoPath, w: targetW, h: targetW * (h / w) };
+    setRightGutter(targetW + 0.65); // keep action titles clear of the logo
+  }
+
   let n = 0;
   for (const sd of sb.slides) {
     const build = BUILDERS[sd.archetype];
@@ -59,6 +75,7 @@ async function main() {
     const fullBleed = ["cover", "section", "quote", "callToAction"].includes(sd.archetype);
     const slide = fullBleed ? pptx.addSlide() : pptx.addSlide({ masterName: "SAGE" });
     build(pptx, slide, sd, T);
+    if (logo) slide.addImage({ path: logo.path, x: SLIDE_W - 0.35 - logo.w, y: 0.2, w: logo.w, h: logo.h });
     n++;
   }
 

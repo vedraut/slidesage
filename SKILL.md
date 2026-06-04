@@ -70,19 +70,24 @@ node scripts/check-dag.mjs storyboard.json   # education mode: no concept taught
 
 ### Step 4 — Pick a visual style
 Read `references/style-systems/README.md` and choose ONE of:
-`japanese-editorial` · `soft-clay-3d` · `futuristic-tech` · `minimalist-luxury` · `modern-illustration` ·
-`hand-drawn-editorial`. Tokens live in `assets/style-tokens/<style>.json`.
+`futuristic-tech` (dark) · `corporate-bright` (light) · `japanese-editorial` · `soft-clay-3d` ·
+`minimalist-luxury` · `modern-illustration` · `hand-drawn-editorial`. Tokens live in
+`assets/style-tokens/<style>.json`.
 
 ### Step 5 — Render
 ```bash
 npm install            # first run only
-node scripts/generate.mjs --in storyboard.json --style futuristic-tech --out deck.pptx
+node scripts/generate.mjs --in storyboard.json --style corporate-bright --out deck.pptx
 ```
+Add a brand logo pinned to the top-right of every slide with `--logo path/to/logo.png` (or set `meta.logo`
+in the storyboard). Titles automatically reserve space so they never run under the logo. If the logo has a
+white/light wordmark, recolor it for light backgrounds first.
 
-### Step 6 — (Optional) subtle section fade — OFF by default
-Only if the user asks for *any* motion:
+### Step 6 — (Optional) transitions — OFF by default
+Only if the user asks for motion. Pass the storyboard so section dividers turn like a chapter (push) and the
+rest fade:
 ```bash
-node scripts/inject-transitions.mjs --in deck.pptx --mode section-fade
+node scripts/inject-transitions.mjs --in deck.pptx --storyboard storyboard.json
 ```
 
 ### Step 7 — QA gate (always)
